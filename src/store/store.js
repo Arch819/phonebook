@@ -1,18 +1,21 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { reducer } from './reducer';
-import { persistStore } from 'redux-persist';
+import {
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
 
 export const store = configureStore({
   reducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
-        // Ignore these action types
-        ignoredActions: ['your/action/type'],
-        // Ignore these field paths in all actions
-        ignoredActionPaths: ['meta.arg', 'payload.timestamp'],
-        // Ignore these paths in the state
-        ignoredPaths: ['items.dates'],
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
 });

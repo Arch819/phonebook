@@ -2,7 +2,7 @@ import { AiOutlineSave } from 'react-icons/ai';
 import { ContactChange } from 'components/ContactItem/ContactItem.styled';
 import { ChangeInput, InputBox } from './ChangeContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { Report } from 'notiflix';
+import { Notify, Report } from 'notiflix';
 import { changeContactThunk } from 'store/contacts/contactsThunk';
 import { selectContacts } from 'store/contacts/selector';
 
@@ -10,11 +10,11 @@ export const ChangeName = ({ contact, onChangeContact }) => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
-  const { id, name } = contact;
+  const { id, name, number } = contact;
 
   const handleChangeContact = e => {
     e.preventDefault();
-    const inputValue = { name: e.target.elements.name.value };
+    const inputValue = { name: e.target.elements.name.value, number: number };
     if (name !== inputValue.name) {
       const identicalContactName = contacts?.some(
         ({ name }) => inputValue.name === name
@@ -27,6 +27,9 @@ export const ChangeName = ({ contact, onChangeContact }) => {
         );
       }
       dispatch(changeContactThunk({ id, inputValue }));
+      Notify.success(
+        `Contact ${name} has been successfully renamed to ${inputValue.name}`
+      );
     }
     onChangeContact('name');
   };
@@ -58,19 +61,22 @@ export const ChangeName = ({ contact, onChangeContact }) => {
 export const ChangeNumber = ({ contact, onChangeContact }) => {
   const dispatch = useDispatch();
 
-  const { id, phone } = contact;
+  const { id, name, number } = contact;
 
   const handleChangeContact = e => {
     e.preventDefault();
-    const inputValue = { phone: e.target.elements.phone.value };
-    if (phone !== inputValue.phone) {
+    const inputValue = { name: name, number: e.target.elements.number.value };
+    if (number !== inputValue.number) {
       dispatch(changeContactThunk({ id, inputValue }));
+      Notify.success(
+        `The phone number of contact <b style={color:red}>${name}</b> has been successfully changed."`
+      );
     }
-    onChangeContact('phone');
+    onChangeContact('number');
   };
   const handleBlur = e => {
     if (!e.currentTarget.contains(e.relatedTarget)) {
-      onChangeContact('phone');
+      onChangeContact('number');
     }
   };
 
@@ -79,8 +85,8 @@ export const ChangeNumber = ({ contact, onChangeContact }) => {
       <form onSubmit={handleChangeContact} onBlur={e => handleBlur(e)}>
         <ChangeInput
           type="tel"
-          name="phone"
-          defaultValue={phone}
+          name="number"
+          defaultValue={number}
           placeholder="phone number*"
           autoFocus
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"

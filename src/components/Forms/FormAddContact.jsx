@@ -1,9 +1,7 @@
-import PropTypes from 'prop-types';
-import { Formik, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
-// import { addContactAction } from 'store/contacts/sliceContacts';
+import { Formik, Field, ErrorMessage } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { Report } from 'notiflix';
+import { Notify, Report } from 'notiflix';
 
 import {
   ButtonIcon,
@@ -12,9 +10,9 @@ import {
   ErrorMessageStyled,
   FormStyled,
   InputBox,
-} from './FormaAddContact.styled';
+} from '../FormAddContact/FormaAddContact.styled';
 import { addContactThunk } from 'store/contacts/contactsThunk';
-// import { addApiContact, getContacts } from 'api/contacts';
+import { selectContacts } from 'store/contacts/selector';
 
 export const schema = object().shape({
   name: string()
@@ -24,7 +22,7 @@ export const schema = object().shape({
       'Invalid name format.'
     )
     .required('This field is required'),
-  phone: string()
+  number: string()
     .trim()
     .matches(
       /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,
@@ -32,14 +30,15 @@ export const schema = object().shape({
     )
     .required('This field is required'),
 });
+
 const initialValues = {
   name: '',
-  phone: '',
+  number: '',
 };
 
 export const FormAddContact = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(store => store.contacts.contacts);
+  const contacts = useSelector(selectContacts);
 
   const handleSubmit = (value, { resetForm }) => {
     const identicalContactName = contacts?.some(
@@ -54,6 +53,7 @@ export const FormAddContact = () => {
     }
     dispatch(addContactThunk(value));
     resetForm();
+    Notify.success(`Contact ${value.name} has been successfully added`);
   };
 
   return (
@@ -80,7 +80,7 @@ export const FormAddContact = () => {
           <InputBox>
             <Field
               type="tel"
-              name="phone"
+              name="number"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
             />
@@ -112,8 +112,4 @@ export const FormAddContact = () => {
       </FormStyled>
     </Formik>
   );
-};
-
-FormAddContact.propTypes = {
-  addContact: PropTypes.func,
 };

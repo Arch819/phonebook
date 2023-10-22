@@ -11,8 +11,6 @@ import {
   handleChangeContactFulfilled,
   handleDeleteContactFulfilled,
   handleGetContactFulfilled,
-  handlePending,
-  handleRejected,
 } from './helpers';
 
 export const contactsSlice = createSlice({
@@ -23,9 +21,7 @@ export const contactsSlice = createSlice({
       .addCase(getContactThunk.fulfilled, handleGetContactFulfilled)
       .addCase(addContactThunk.fulfilled, handleAddContactFulfilled)
       .addCase(deleteContactThunk.fulfilled, handleDeleteContactFulfilled)
-      .addCase(changeContactThunk.fulfilled, handleChangeContactFulfilled)
-      .addMatcher(action => action.type.endsWith('/pending'), handlePending)
-      .addMatcher(action => action.type.endsWith('/rejected'), handleRejected);
+      .addCase(changeContactThunk.fulfilled, handleChangeContactFulfilled);
   },
 });
 
