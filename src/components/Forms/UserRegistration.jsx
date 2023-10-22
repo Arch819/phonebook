@@ -10,7 +10,6 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import { fetchSignup } from 'api/userApi';
 import { useFormik } from 'formik';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
