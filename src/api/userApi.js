@@ -11,13 +11,11 @@ const deleteToken = () => {
 
 export const fetchLogin = async body => {
   const { data } = await axios.post('users/login', body);
-  console.log(data);
   setToken(data.token);
   return data;
 };
 export const fetchSignup = async body => {
   const { data } = await axios.post('users/signup', body);
-  console.log(data);
   setToken(data.token);
   return data;
 };

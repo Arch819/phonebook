@@ -32,6 +32,11 @@ code {
     monospace;
 }
 
+main {
+  padding-top: 60px;
+  padding-bottom: 20px;
+}
+
 h1,
 h2,
 p {
@@ -62,7 +67,7 @@ input {
   background: #999;
 }
 
-input:hover {
+input:is(:hover, :focus) {
   border-color: transparent;
   box-shadow: inset 0 0 6px 1px #003530;
 }

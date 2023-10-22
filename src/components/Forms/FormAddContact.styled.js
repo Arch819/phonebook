@@ -1,19 +1,16 @@
-import { Form } from 'formik';
-import { styled } from 'styled-components';
-
-export const FormStyled = styled(Form)({
-  width: '400px',
+export const FormStyled = {
+  width: '300px',
   display: 'flex',
   flexDirection: 'column',
   gap: '10px',
-  marginBottom: '20px',
-});
+  margin: '0 auto 20px',
+};
 
-export const ButtonSubmit = styled('button')({
+export const ButtonSubmit = {
   margin: '10px auto 0',
-  borderRadius: '15px',
+  borderRadius: '10px',
   position: 'relative',
-  width: '150px',
+  width: '180px',
   height: '40px',
   cursor: 'pointer',
   display: 'flex',
@@ -32,27 +29,28 @@ export const ButtonSubmit = styled('button')({
   '&:active': {
     border: '1px solid #2e8644',
   },
-});
+};
 
-export const ButtonText = styled('span')({
-  transform: 'translateX(20px)',
+export const ButtonText = {
+  transform: 'translateX(-15px)',
   color: '#fff',
   fontWeight: '600',
+  transition: 'color 0.3s',
 
   'button:is(:hover,:focus) &': {
-    color: 'transparent',
+    // color: 'transparent',
   },
-});
+};
 
-export const ButtonIcon = styled('span')({
+export const ButtonIcon = {
   position: 'absolute',
-  transform: 'translateX(104px)',
+  transform: 'translateX(145px)',
   height: '100%',
-  width: '39px',
+  width: '180px',
   backgroundColor: '#34974d',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
+  transition: 'transform 0.2s',
 
   '& svg': {
     width: '30px',
@@ -61,18 +59,8 @@ export const ButtonIcon = styled('span')({
   },
 
   'button:is(:hover,:focus) &': {
-    width: '148px',
-    transform: 'translateX(-4px)',
-  },
-});
+    justifyContent: 'center',
 
-export const InputBox = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
-  gap: '10px',
-});
-export const ErrorMessageStyled = styled('div')({
-  display: 'inline-block',
-  fontSize: '12px',
-  color: '#955',
-});
+    transform: 'translateX(0)',
+  },
+};

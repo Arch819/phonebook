@@ -8,14 +8,16 @@ import {
   InputAdornment,
   InputLabel,
   TextField,
+  Typography,
 } from '@mui/material';
-import { fetchSignup } from 'api/userApi';
 import { useFormik } from 'formik';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { loginThunk, registrationThunk } from 'store/user/userThunk';
+import { loginThunk } from 'store/user/userThunk';
 // import { schema } from './ValidationShema';
 import { object, string } from 'yup';
+import { UserFormStyle } from './FormLogin.stuled';
+import { ButtonSubmit } from './FormAddContact.styled';
 
 export const schema = object().shape({
   email: string('Enter your email')
@@ -31,7 +33,7 @@ export const schema = object().shape({
     .matches(/^(?=.*[A-Z])\S{8,}$/, 'Invalid password format.')
     .required('This field is required'),
 });
-const initialValue = {
+const initialValues = {
   email: '',
   password: '',
 };
@@ -48,27 +50,16 @@ const UserLogin = () => {
   };
 
   const formik = useFormik({
-    initialValues: initialValue,
+    initialValues: initialValues,
 
     validationSchema: schema,
-    onSubmit: (values, { handleReset }) => {
+    onSubmit: (values, { resetForm }) => {
       dispatch(loginThunk(values));
-      handleReset();
+      resetForm();
     },
   });
   return (
-    <Box
-      component="form"
-      onSubmit={formik.handleSubmit}
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '20px',
-        maxWidth: '600px',
-        margin: '0 auto',
-      }}
-    >
+    <Box component="form" onSubmit={formik.handleSubmit} sx={UserFormStyle}>
       <TextField
         name="email"
         label="Email"
@@ -78,9 +69,18 @@ const UserLogin = () => {
         onBlur={formik.handleBlur}
         error={formik.touched.email && Boolean(formik.errors.email)}
         helperText={formik.touched.email && formik.errors.email}
+        InputLabelProps={{
+          style: { color: '#aeaeae' },
+        }}
+        InputProps={{ style: { color: '#aeaeae' } }}
       />
       <FormControl variant="standard">
-        <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
+        <InputLabel
+          htmlFor="standard-adornment-password"
+          sx={{ color: '#aeaeae' }}
+        >
+          Password
+        </InputLabel>
         <Input
           id="standard-adornment-password"
           type={showPassword ? 'text' : 'password'}
@@ -90,7 +90,7 @@ const UserLogin = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           error={formik.touched.password && Boolean(formik.errors.password)}
-          helperText={formik.touched.password && formik.errors.password}
+          sx={{ color: '#aeaeae' }}
           endAdornment={
             <InputAdornment position="end">
               <IconButton
@@ -103,8 +103,13 @@ const UserLogin = () => {
             </InputAdornment>
           }
         />
+        {formik.touched.password && (
+          <Typography sx={{ color: '#d32f2f' }}>
+            {formik.errors.password}
+          </Typography>
+        )}
       </FormControl>
-      <Button color="primary" variant="contained" fullWidth type="submit">
+      <Button variant="contained" fullWidth type="submit" sx={ButtonSubmit}>
         Login
       </Button>
     </Box>

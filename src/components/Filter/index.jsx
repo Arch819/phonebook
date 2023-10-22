@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import { Box, TextField } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeFilter } from 'store/filter/sliceFilter';
 
@@ -11,14 +11,20 @@ export const Filter = () => {
     dispatch(changeFilter(filterValue));
   };
   return (
-    <label>
-      Find contacts by name
-      <input type="text" value={filter} onChange={onChange} />
-    </label>
+    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+      <TextField
+        name="filter"
+        label="Find contacts by name"
+        variant="standard"
+        value={filter}
+        onChange={onChange}
+        InputLabelProps={{
+          style: {
+            color: '#aeaeae',
+          },
+        }}
+        InputProps={{ style: { color: '#aeaeae' } }}
+      />
+    </Box>
   );
-};
-
-Filter.propTypes = {
-  value: PropTypes.string,
-  onChange: PropTypes.func,
 };

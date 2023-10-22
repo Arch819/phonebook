@@ -1,6 +1,8 @@
 import { Box, Typography } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import UserMenu from 'components/UserMenu';
+import Logo from '../../images/logo.svg';
+import { NavLinkStyle } from 'components/Header/Header.styled';
 
 const Navigation = () => {
   return (
@@ -14,9 +16,14 @@ const Navigation = () => {
       }}
     >
       <Box>
-        <Typography sx={{ minWidth: 100 }} component={NavLink} to="/">
-          Contact
+        <Typography sx={NavLinkStyle} component={NavLink} to="/">
+          Contacts
         </Typography>
+      </Box>
+      <Box>
+        <Link to="/">
+          <img src={Logo} alt="logo" width={80} />
+        </Link>
       </Box>
       <UserMenu />
     </Box>

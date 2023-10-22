@@ -8,6 +8,7 @@ import {
   InputAdornment,
   InputLabel,
   TextField,
+  Typography,
 } from '@mui/material';
 import { fetchSignup } from 'api/userApi';
 import { useFormik } from 'formik';
@@ -16,6 +17,8 @@ import { useDispatch } from 'react-redux';
 import { registrationThunk } from 'store/user/userThunk';
 // import { schema } from './ValidationShema';
 import { object, string } from 'yup';
+import { UserFormStyle } from './FormLogin.stuled';
+import { ButtonSubmit } from './FormAddContact.styled';
 
 export const schema = object().shape({
   name: string('Enter your name')
@@ -65,18 +68,7 @@ const UserRegistration = () => {
     },
   });
   return (
-    <Box
-      component="form"
-      onSubmit={formik.handleSubmit}
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '20px',
-        maxWidth: '600px',
-        margin: '0 auto',
-      }}
-    >
+    <Box component="form" onSubmit={formik.handleSubmit} sx={UserFormStyle}>
       <TextField
         type="text"
         id="standard-basic"
@@ -88,6 +80,10 @@ const UserRegistration = () => {
         onBlur={formik.handleBlur}
         error={formik.touched.name && Boolean(formik.errors.name)}
         helperText={formik.touched.name && formik.errors.name}
+        InputLabelProps={{
+          style: { color: '#aeaeae' },
+        }}
+        InputProps={{ style: { color: '#aeaeae' } }}
       />
       <TextField
         name="email"
@@ -98,22 +94,18 @@ const UserRegistration = () => {
         onBlur={formik.handleBlur}
         error={formik.touched.email && Boolean(formik.errors.email)}
         helperText={formik.touched.email && formik.errors.email}
+        InputLabelProps={{
+          style: { color: '#aeaeae' },
+        }}
+        InputProps={{ style: { color: '#aeaeae' } }}
       />
-      {/* <TextField
-        //id="standard-basic"
-        id="password"
-        name="password"
-        label="Password"
-        type="password"
-        variant="standard"
-        value={formik.values?.password}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.password && Boolean(formik.errors.password)}
-        helperText={formik.touched.password && formik.errors.password}
-      /> */}
       <FormControl variant="standard">
-        <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
+        <InputLabel
+          htmlFor="standard-adornment-password"
+          sx={{ color: '#aeaeae' }}
+        >
+          Password
+        </InputLabel>
         <Input
           id="standard-adornment-password"
           type={showPassword ? 'text' : 'password'}
@@ -123,7 +115,7 @@ const UserRegistration = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           error={formik.touched.password && Boolean(formik.errors.password)}
-          helperText={formik.touched.password && formik.errors.password}
+          sx={{ color: '#aeaeae' }}
           endAdornment={
             <InputAdornment position="end">
               <IconButton
@@ -136,8 +128,13 @@ const UserRegistration = () => {
             </InputAdornment>
           }
         />
+        {formik.touched.password && (
+          <Typography sx={{ color: '#d32f2f' }}>
+            {formik.errors.password}
+          </Typography>
+        )}
       </FormControl>
-      <Button color="primary" variant="contained" fullWidth type="submit">
+      <Button variant="contained" fullWidth type="submit" sx={ButtonSubmit}>
         Registration
       </Button>
     </Box>

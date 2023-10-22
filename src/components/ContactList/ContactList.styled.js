@@ -10,6 +10,7 @@ export const ContactListStyled = styled('ul')({
   overflow: 'auto',
   marginTop: '20px',
   padding: '5px',
+  margin: '0 auto',
 });
 
 export const EmptyEl = styled('span')({

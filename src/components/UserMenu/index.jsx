@@ -1,8 +1,9 @@
-import { NavLink, Navigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Box, Button, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoggedIn, selectProfile } from 'store/user/userSelectors';
 import { logoutThunk } from 'store/user/userThunk';
+import { LogOutStyle, NavLinkStyle } from 'components/Header/Header.styled';
 
 const UserMenu = () => {
   const dispatch = useDispatch();
@@ -11,32 +12,23 @@ const UserMenu = () => {
 
   const handleLogOut = () => {
     dispatch(logoutThunk());
-    Navigate({ to: '/login' });
   };
 
   return (
     <>
       {!isLoggedIn ? (
-        <Box>
-          <Typography sx={{ minWidth: 100 }} component={NavLink} to="/login">
+        <Box sx={{ display: 'flex', gap: '10px' }}>
+          <Typography sx={NavLinkStyle} component={NavLink} to="/login">
             Login
           </Typography>
-          <Typography
-            sx={{ minWidth: 100 }}
-            component={NavLink}
-            to="/registration"
-          >
+          <Typography sx={NavLinkStyle} component={NavLink} to="/registration">
             Registration
           </Typography>
         </Box>
       ) : (
-        <Box>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Typography component="span">Hello: {name}</Typography>
-          <Button
-            sx={{ minWidth: 100 }}
-            variant="outlined"
-            onClick={handleLogOut}
-          >
+          <Button sx={LogOutStyle} variant="outlined" onClick={handleLogOut}>
             LogOut
           </Button>
         </Box>
