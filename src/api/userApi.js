@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
+axios.defaults.baseURL = 'http://localhost:8000';
 
 const setToken = token => {
   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -31,4 +31,11 @@ export const fetchRefresh = async token => {
   const { data } = await axios('users/current');
 
   return data;
+};
+
+export const updateProfile = async formData => {
+  const { data } = await axios.patch('users/photo', formData, {
+    headers: { 'content-type': 'multipart/form-data' },
+  });
+  return data.avatarURL;
 };

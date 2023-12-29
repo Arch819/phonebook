@@ -5,6 +5,7 @@ import {
   logoutThunk,
   refreshThunk,
   registrationThunk,
+  updateProfileThunk,
 } from './userThunk';
 import {
   handleLogoutFulfilled,
@@ -24,7 +25,10 @@ export const userSlice = createSlice({
       .addCase(refreshThunk.fulfilled, handleRefreshFulfilled)
       .addCase(logoutThunk.fulfilled, handleLogoutFulfilled)
       .addCase(refreshThunk.pending, handleRefreshPending)
-      .addCase(refreshThunk.rejected, handleRefreshRejected);
+      .addCase(refreshThunk.rejected, handleRefreshRejected)
+      .addCase(updateProfileThunk.fulfilled, (state, { payload }) => {
+        state.profile.photo = payload;
+      });
   },
 });
 

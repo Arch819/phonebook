@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import api from 'api';
+import { updateProfile } from 'api/userApi';
 
 const { fetchSignup, fetchLogin, fetchRefresh, fetchLogout } = api.userApi;
 
@@ -50,6 +51,20 @@ export const logoutThunk = createAsyncThunk(
       return data;
     } catch (error) {
       console.log(error);
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const updateProfileThunk = createAsyncThunk(
+  'user/update',
+  async (file, { rejectWithValue }) => {
+    try {
+      const formData = new FormData();
+      formData.append('avatar', file);
+      const data = await updateProfile(formData);
+      return data;
+    } catch (error) {
       return rejectWithValue(error.response.data.message);
     }
   }

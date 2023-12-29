@@ -1,7 +1,4 @@
 import axios from 'axios';
-
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
-
 export const fetchGetContacts = async () => {
   const { data } = await axios('contacts');
   return data;
@@ -12,8 +9,7 @@ export const fetchAddContact = async contact => {
 };
 
 export const fetchDeleteContact = async id => {
-  const { data } = await axios.delete(`contacts/${id}`);
-  return data;
+  await axios.delete(`contacts/${id}`);
 };
 
 export const fetchChangContact = async ({ id, inputValue }) => {

@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Box, Button, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoggedIn, selectProfile } from 'store/user/userSelectors';
@@ -28,6 +28,7 @@ const UserMenu = () => {
       ) : (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Typography component="span">Hello: {name}</Typography>
+          <Link to="/profile">Profile</Link>
           <Button sx={LogOutStyle} variant="outlined" onClick={handleLogOut}>
             LogOut
           </Button>

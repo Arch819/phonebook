@@ -27,7 +27,7 @@ import { ChangeName, ChangeNumber } from 'components/ChangeContactForm';
 export const ContactItem = ({ contact }) => {
   const [changeName, setChangeName] = useState(false);
   const [changeNumber, setChangeNumber] = useState(false);
-  const { id, name, number } = contact;
+  const { _id: id, name, number } = contact;
   const dispatch = useDispatch();
 
   const deleteContact = () => {

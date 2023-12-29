@@ -22,22 +22,22 @@ import { ButtonSubmit } from './FormAddContact.styled';
 export const schema = object().shape({
   name: string('Enter your name')
     .trim()
-    .matches(
-      /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
-      'Invalid name format.'
-    )
+    // .matches(
+    //   // /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
+    //   'Invalid name format.'
+    // )
     .required('This field is required'),
   email: string('Enter your email')
     .email('Enter a valid email')
     .trim()
-    .matches(
-      /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-      'Invalid email format.'
-    )
+    // .matches(
+    //   // /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+    //   'Invalid email format.'
+    // )
     .required('This field is required'),
   password: string('Enter your password')
     .trim()
-    .matches(/^(?=.*[A-Z])\S{8,}$/, 'Invalid password format.')
+    // .matches(/^(?=.*[A-Z])\S{8,}$/, 'Invalid password format.')
     .required('This field is required'),
 });
 const initialValue = {
