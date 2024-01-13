@@ -20,7 +20,7 @@ export const ContactList = () => {
       {contactList.length ? (
         <ContactListStyled>
           {contactList.map(contact => {
-            return <ContactItem key={contact.id} contact={contact} />;
+            return <ContactItem key={contact._id} contact={contact} />;
           })}
         </ContactListStyled>
       ) : (

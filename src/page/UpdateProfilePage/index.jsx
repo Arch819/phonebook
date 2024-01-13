@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateProfileThunk } from 'store/user/userThunk';
 
-function UpdateProfile() {
+function UpdateProfilePage() {
   const [file, setFile] = useState(null);
 
   const dispatch = useDispatch();
@@ -24,4 +24,4 @@ function UpdateProfile() {
   );
 }
 
-export default UpdateProfile;
+export default UpdateProfilePage;

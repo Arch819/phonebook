@@ -19,12 +19,31 @@ export const NavLinkStyle = {
 };
 
 export const LogOutStyle = {
-  minWidth: 100,
-  borderColor: '#f1f1f1',
+  fontSize: '14px',
+  lineHeight: '1.5',
+  letterSpacing: '0.08px',
   color: '#aeaeae',
-  marginLeft: '10px',
+  textTransform: 'uppercase',
+  padding: '0',
 
   '&:is(:hover,:focus)': {
-    borderColor: 'rgb(255, 69, 69)',
+    color: 'rgb(255, 69, 69)',
   },
+};
+
+export const ProfileLinkStyle = {
+  fontSize: '14px',
+  lineHeight: '1.5',
+  letterSpacing: '0.08px',
+  textDecoration: 'none',
+  textTransform: 'uppercase',
+  color: '#aeaeae',
+  '&:is(:hover,:focus)': {
+    color: 'rgb(255, 69, 69)',
+  },
+};
+
+export const SettingProfileStyle = {
+  padding: '8px',
+  justifyContent: 'center',
 };

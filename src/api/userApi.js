@@ -15,7 +15,7 @@ export const fetchLogin = async body => {
   return data;
 };
 export const fetchSignup = async body => {
-  const { data } = await axios.post('users/signup', body);
+  const { data } = await axios.post('users/register', body);
   setToken(data.token);
   return data;
 };
@@ -34,8 +34,10 @@ export const fetchRefresh = async token => {
 };
 
 export const updateProfile = async formData => {
-  const { data } = await axios.patch('users/photo', formData, {
+  console.log(formData);
+  const { data } = await axios.patch('users/avatars', formData, {
     headers: { 'content-type': 'multipart/form-data' },
   });
+  console.log(data);
   return data.avatarURL;
 };

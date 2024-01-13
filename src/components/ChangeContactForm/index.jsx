@@ -10,11 +10,11 @@ export const ChangeName = ({ contact, onChangeContact }) => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
-  const { id, name, number } = contact;
+  const { _id: contactId, name } = contact;
 
   const handleChangeContact = e => {
     e.preventDefault();
-    const inputValue = { name: e.target.elements.name.value, number: number };
+    const inputValue = { name: e.target.elements.name.value };
     if (name !== inputValue.name) {
       const identicalContactName = contacts?.some(
         ({ name }) => inputValue.name === name
@@ -26,7 +26,7 @@ export const ChangeName = ({ contact, onChangeContact }) => {
           'ok'
         );
       }
-      dispatch(changeContactThunk({ id, inputValue }));
+      dispatch(changeContactThunk({ contactId, inputValue }));
       Notify.success(
         `Contact ${name} has been successfully renamed to ${inputValue.name}`
       );
@@ -58,25 +58,25 @@ export const ChangeName = ({ contact, onChangeContact }) => {
   );
 };
 
-export const ChangeNumber = ({ contact, onChangeContact }) => {
+export const ChangePhone = ({ contact, onChangeContact }) => {
   const dispatch = useDispatch();
 
-  const { id, name, number } = contact;
+  const { _id: contactId, name, phone } = contact;
 
   const handleChangeContact = e => {
     e.preventDefault();
-    const inputValue = { name: name, number: e.target.elements.number.value };
-    if (number !== inputValue.number) {
-      dispatch(changeContactThunk({ id, inputValue }));
+    const inputValue = { phone: e.target.elements.phone.value };
+    if (phone !== inputValue.phone) {
+      dispatch(changeContactThunk({ contactId, inputValue }));
       Notify.success(
         `The phone number of contact <b style={color:red}>${name}</b> has been successfully changed."`
       );
     }
-    onChangeContact('number');
+    onChangeContact('phone');
   };
   const handleBlur = e => {
     if (!e.currentTarget.contains(e.relatedTarget)) {
-      onChangeContact('number');
+      onChangeContact('phone');
     }
   };
 
@@ -85,8 +85,8 @@ export const ChangeNumber = ({ contact, onChangeContact }) => {
       <form onSubmit={handleChangeContact} onBlur={e => handleBlur(e)}>
         <ChangeInput
           type="tel"
-          name="number"
-          defaultValue={number}
+          name="phone"
+          defaultValue={phone}
           placeholder="phone number*"
           autoFocus
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"

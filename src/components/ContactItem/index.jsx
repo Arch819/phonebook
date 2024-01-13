@@ -1,9 +1,5 @@
 import { useState } from 'react';
-import {
-  MdDelete,
-  // MdFavorite,
-  // MdFavoriteBorder
-} from 'react-icons/md';
+import { MdDelete, MdFavorite, MdFavoriteBorder } from 'react-icons/md';
 import { BsPencil } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
 import { Notify } from 'notiflix';
@@ -11,49 +7,49 @@ import {
   ContactChange,
   ContactData,
   ContactDelete,
-  // ContactFavorite,
+  ContactFavorite,
   ContactItemEl,
   ContactName,
-  ContactNumber,
+  ContactPhone,
 } from './ContactItem.styled';
 import {
-  // changeContactThunk,
+  changeContactThunk,
   deleteContactThunk,
 } from 'store/contacts/contactsThunk';
-import { ChangeName, ChangeNumber } from 'components/ChangeContactForm';
+import { ChangeName, ChangePhone } from 'components/ChangeContactForm';
 // const ChangeName = lazy(() => import('components/ChangeContactForm'));
 // const ChangeNumber = lazy(() => import('components/ChangeContactForm'));
 
 export const ContactItem = ({ contact }) => {
   const [changeName, setChangeName] = useState(false);
-  const [changeNumber, setChangeNumber] = useState(false);
-  const { _id: id, name, number } = contact;
+  const [changePhone, setChangePhone] = useState(false);
+  const { _id: contactId, name, phone, favorite } = contact;
   const dispatch = useDispatch();
 
   const deleteContact = () => {
-    dispatch(deleteContactThunk(id));
+    dispatch(deleteContactThunk(contactId));
     Notify.warning(`Contact ${name} has been deleted`);
   };
-  // const addToFavorite = () => {
-  //   const inputValue = { favorite: !favorite };
-  //   dispatch(changeContactThunk({ id, inputValue }));
-  // };
+  const addToFavorite = () => {
+    const inputValue = { favorite: !favorite };
+    dispatch(changeContactThunk({ contactId, inputValue }));
+  };
 
   const onChangeContact = input => {
     input === 'name'
       ? setChangeName(prev => !prev)
-      : setChangeNumber(prev => !prev);
+      : setChangePhone(prev => !prev);
   };
 
   return (
     <ContactItemEl>
-      {/* <ContactFavorite type="button" onClick={() => addToFavorite()}>
+      <ContactFavorite type="button" onClick={() => addToFavorite()}>
         {favorite ? (
           <MdFavorite style={{ fill: '#f90' }} />
         ) : (
           <MdFavoriteBorder />
         )}
-      </ContactFavorite> */}
+      </ContactFavorite>
       <ContactData>
         {!changeName ? (
           <ContactName>
@@ -68,18 +64,18 @@ export const ContactItem = ({ contact }) => {
         ) : (
           <ChangeName contact={contact} onChangeContact={onChangeContact} />
         )}
-        {!changeNumber ? (
-          <ContactNumber>
-            {number}
+        {!changePhone ? (
+          <ContactPhone>
+            {phone}
             <ContactChange
               type="button"
-              onClick={() => onChangeContact('number')}
+              onClick={() => onChangeContact('phone')}
             >
               <BsPencil />
             </ContactChange>
-          </ContactNumber>
+          </ContactPhone>
         ) : (
-          <ChangeNumber contact={contact} onChangeContact={onChangeContact} />
+          <ChangePhone contact={contact} onChangeContact={onChangeContact} />
         )}
       </ContactData>
       <ContactDelete type="button" onClick={() => deleteContact()}>
@@ -88,5 +84,3 @@ export const ContactItem = ({ contact }) => {
     </ContactItemEl>
   );
 };
-
-//

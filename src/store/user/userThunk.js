@@ -60,8 +60,10 @@ export const updateProfileThunk = createAsyncThunk(
   'user/update',
   async (file, { rejectWithValue }) => {
     try {
+      console.log(file);
       const formData = new FormData();
-      formData.append('avatar', file);
+      formData.append('avatarURL', file);
+      console.log(formData);
       const data = await updateProfile(formData);
       return data;
     } catch (error) {

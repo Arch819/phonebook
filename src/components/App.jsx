@@ -9,8 +9,8 @@ import { Loader } from './Loader';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
 import PhoneBookPage from 'page/PhoneBookPage';
-import Profile from 'page/Profile';
-import UpdateProfile from 'page/UpdateProfile';
+import UpdateProfile from 'page/UpdateProfilePage';
+import ProfilePage from 'page/ProfilePage';
 
 const LoginPage = lazy(() => import('page/LoginPage'));
 const RegistrationPage = lazy(() => import('page/RegistrationPage'));
@@ -47,7 +47,9 @@ export const App = () => {
         />
         <Route
           path="/profile"
-          element={<PrivateRoute redirectTo="/login" component={<Profile />} />}
+          element={
+            <PrivateRoute redirectTo="/login" component={<ProfilePage />} />
+          }
         />
         <Route
           path="/profile/update"

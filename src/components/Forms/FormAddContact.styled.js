@@ -4,6 +4,13 @@ export const FormStyled = {
   flexDirection: 'column',
   gap: '10px',
   margin: '0 auto 20px',
+
+  '& label': {
+    color: '#aeaeae',
+  },
+  '& input': {
+    padding: '5px',
+  },
 };
 
 export const ButtonSubmit = {

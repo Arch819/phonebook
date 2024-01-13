@@ -98,7 +98,7 @@ export const ContactName = styled('span')({
   fontWeight: '600',
   lineHeight: '1.4',
 });
-export const ContactNumber = styled('span')({
+export const ContactPhone = styled('span')({
   display: 'flex',
   alignItems: 'center',
   gap: '10px',
