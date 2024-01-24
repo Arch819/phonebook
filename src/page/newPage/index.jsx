@@ -53,138 +53,164 @@ const NewPage = () => {
         modules={[Grid, Pagination]}
         className="mySwiper"
       >
-        <SwiperItem key={data.idFilter}>
-          <Link
-            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
-          >
-            <Image src={data.imgURL} alt="name"></Image>
-            <TextContainer>
-              <h3>{capitalizedWord(data.name)}</h3>
-              <p>{data.filter}</p>
-            </TextContainer>
-          </Link>
-        </SwiperItem>
-        <SwiperItem key={data.idFilter}>
-          <Link
-            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
-          >
-            <Image src={data.imgURL} alt="name"></Image>
-            <TextContainer>
-              <h3>{capitalizedWord(data.name)}</h3>
-              <p>{data.filter}</p>
-            </TextContainer>
-          </Link>
-        </SwiperItem>
-        <SwiperItem key={data.idFilter}>
-          <Link
-            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
-          >
-            <Image src={data.imgURL} alt="name"></Image>
-            <TextContainer>
-              <h3>{capitalizedWord(data.name)}</h3>
-              <p>{data.filter}</p>
-            </TextContainer>
-          </Link>
-        </SwiperItem>
-        <SwiperItem key={data.idFilter}>
-          <Link
-            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
-          >
-            <Image src={data.imgURL} alt="name"></Image>
-            <TextContainer>
-              <h3>{capitalizedWord(data.name)}</h3>
-              <p>{data.filter}</p>
-            </TextContainer>
-          </Link>
-        </SwiperItem>
-        <SwiperItem key={data.idFilter}>
-          <Link
-            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
-          >
-            <Image src={data.imgURL} alt="name"></Image>
-            <TextContainer>
-              <h3>{capitalizedWord(data.name)}</h3>
-              <p>{data.filter}</p>
-            </TextContainer>
-          </Link>
-        </SwiperItem>
-        <SwiperItem key={data.idFilter}>
-          <Link
-            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
-          >
-            <Image src={data.imgURL} alt="name"></Image>
-            <TextContainer>
-              <h3>{capitalizedWord(data.name)}</h3>
-              <p>{data.filter}</p>
-            </TextContainer>
-          </Link>
-        </SwiperItem>
-        <SwiperItem key={data.idFilter}>
-          <Link
-            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
-          >
-            <Image src={data.imgURL} alt="name"></Image>
-            <TextContainer>
-              <h3>{capitalizedWord(data.name)}</h3>
-              <p>{data.filter}</p>
-            </TextContainer>
-          </Link>
-        </SwiperItem>
-        <SwiperItem key={data.idFilter}>
-          <Link
-            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
-          >
-            <Image src={data.imgURL} alt="name"></Image>
-            <TextContainer>
-              <h3>{capitalizedWord(data.name)}</h3>
-              <p>{data.filter}</p>
-            </TextContainer>
-          </Link>
-        </SwiperItem>
-        <SwiperItem key={data.idFilter}>
-          <Link
-            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
-          >
-            <Image src={data.imgURL} alt="name"></Image>
-            <TextContainer>
-              <h3>{capitalizedWord(data.name)}</h3>
-              <p>{data.filter}</p>
-            </TextContainer>
-          </Link>
-        </SwiperItem>
-        <SwiperItem key={data.idFilter}>
-          <Link
-            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
-          >
-            <Image src={data.imgURL} alt="name"></Image>
-            <TextContainer>
-              <h3>{capitalizedWord(data.name)}</h3>
-              <p>{data.filter}</p>
-            </TextContainer>
-          </Link>
-        </SwiperItem>
-        <SwiperItem key={data.idFilter}>
-          <Link
-            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
-          >
-            <Image src={data.imgURL} alt="name"></Image>
-            <TextContainer>
-              <h3>{capitalizedWord(data.name)}</h3>
-              <p>{data.filter}</p>
-            </TextContainer>
-          </Link>
-        </SwiperItem>
-        <SwiperItem key={data.idFilter}>
-          <Link
-            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
-          >
-            <Image src={data.imgURL} alt="name"></Image>
-            <TextContainer>
-              <h3>{capitalizedWord(data.name)}</h3>
-              <p>{data.filter}</p>
-            </TextContainer>
-          </Link>
-        </SwiperItem>
+        <div className="swiper-wrapper">
+          <SwiperItem key={data.idFilter}>
+            <Link
+              to={`/exercises/${data.category}/${encodeURIComponent(
+                data.name
+              )}`}
+            >
+              <Image src={data.imgURL} alt="name"></Image>
+              <TextContainer>
+                <h3>{capitalizedWord(data.name)}</h3>
+                <p>{data.filter}</p>
+              </TextContainer>
+            </Link>
+          </SwiperItem>
+          <SwiperItem key={data.idFilter}>
+            <Link
+              to={`/exercises/${data.category}/${encodeURIComponent(
+                data.name
+              )}`}
+            >
+              <Image src={data.imgURL} alt="name"></Image>
+              <TextContainer>
+                <h3>{capitalizedWord(data.name)}</h3>
+                <p>{data.filter}</p>
+              </TextContainer>
+            </Link>
+          </SwiperItem>
+          <SwiperItem key={data.idFilter}>
+            <Link
+              to={`/exercises/${data.category}/${encodeURIComponent(
+                data.name
+              )}`}
+            >
+              <Image src={data.imgURL} alt="name"></Image>
+              <TextContainer>
+                <h3>{capitalizedWord(data.name)}</h3>
+                <p>{data.filter}</p>
+              </TextContainer>
+            </Link>
+          </SwiperItem>
+          <SwiperItem key={data.idFilter}>
+            <Link
+              to={`/exercises/${data.category}/${encodeURIComponent(
+                data.name
+              )}`}
+            >
+              <Image src={data.imgURL} alt="name"></Image>
+              <TextContainer>
+                <h3>{capitalizedWord(data.name)}</h3>
+                <p>{data.filter}</p>
+              </TextContainer>
+            </Link>
+          </SwiperItem>
+          <SwiperItem key={data.idFilter}>
+            <Link
+              to={`/exercises/${data.category}/${encodeURIComponent(
+                data.name
+              )}`}
+            >
+              <Image src={data.imgURL} alt="name"></Image>
+              <TextContainer>
+                <h3>{capitalizedWord(data.name)}</h3>
+                <p>{data.filter}</p>
+              </TextContainer>
+            </Link>
+          </SwiperItem>
+          <SwiperItem key={data.idFilter}>
+            <Link
+              to={`/exercises/${data.category}/${encodeURIComponent(
+                data.name
+              )}`}
+            >
+              <Image src={data.imgURL} alt="name"></Image>
+              <TextContainer>
+                <h3>{capitalizedWord(data.name)}</h3>
+                <p>{data.filter}</p>
+              </TextContainer>
+            </Link>
+          </SwiperItem>
+          <SwiperItem key={data.idFilter}>
+            <Link
+              to={`/exercises/${data.category}/${encodeURIComponent(
+                data.name
+              )}`}
+            >
+              <Image src={data.imgURL} alt="name"></Image>
+              <TextContainer>
+                <h3>{capitalizedWord(data.name)}</h3>
+                <p>{data.filter}</p>
+              </TextContainer>
+            </Link>
+          </SwiperItem>
+          <SwiperItem key={data.idFilter}>
+            <Link
+              to={`/exercises/${data.category}/${encodeURIComponent(
+                data.name
+              )}`}
+            >
+              <Image src={data.imgURL} alt="name"></Image>
+              <TextContainer>
+                <h3>{capitalizedWord(data.name)}</h3>
+                <p>{data.filter}</p>
+              </TextContainer>
+            </Link>
+          </SwiperItem>
+          <SwiperItem key={data.idFilter}>
+            <Link
+              to={`/exercises/${data.category}/${encodeURIComponent(
+                data.name
+              )}`}
+            >
+              <Image src={data.imgURL} alt="name"></Image>
+              <TextContainer>
+                <h3>{capitalizedWord(data.name)}</h3>
+                <p>{data.filter}</p>
+              </TextContainer>
+            </Link>
+          </SwiperItem>
+          <SwiperItem key={data.idFilter}>
+            <Link
+              to={`/exercises/${data.category}/${encodeURIComponent(
+                data.name
+              )}`}
+            >
+              <Image src={data.imgURL} alt="name"></Image>
+              <TextContainer>
+                <h3>{capitalizedWord(data.name)}</h3>
+                <p>{data.filter}</p>
+              </TextContainer>
+            </Link>
+          </SwiperItem>
+          <SwiperItem key={data.idFilter}>
+            <Link
+              to={`/exercises/${data.category}/${encodeURIComponent(
+                data.name
+              )}`}
+            >
+              <Image src={data.imgURL} alt="name"></Image>
+              <TextContainer>
+                <h3>{capitalizedWord(data.name)}</h3>
+                <p>{data.filter}</p>
+              </TextContainer>
+            </Link>
+          </SwiperItem>
+          <SwiperItem key={data.idFilter}>
+            <Link
+              to={`/exercises/${data.category}/${encodeURIComponent(
+                data.name
+              )}`}
+            >
+              <Image src={data.imgURL} alt="name"></Image>
+              <TextContainer>
+                <h3>{capitalizedWord(data.name)}</h3>
+                <p>{data.filter}</p>
+              </TextContainer>
+            </Link>
+          </SwiperItem>
+        </div>
       </SwiperBox>
     </div>
   );
