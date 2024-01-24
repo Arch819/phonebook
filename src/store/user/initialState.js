@@ -6,7 +6,7 @@ export const initialState = {
     avatarURL: '',
     verify: false,
   },
-  isLoggedIn: false,
+  isLoggedIn: true,
   isRefresh: false,
   token: '',
 };

@@ -4,8 +4,8 @@ export const handleGetContactFulfilled = (state, { payload }) => {
 export const handleAddContactFulfilled = (state, { payload }) => {
   state.contacts.push(payload);
 };
-export const handleDeleteContactFulfilled = (state, { payload }) => {
-  state.contacts = state.contacts.filter(contact => contact._id !== payload);
+export const handleDeleteContactFulfilled = (state, { meta: { arg } }) => {
+  state.contacts = state.contacts.filter(contact => contact._id !== arg);
 };
 
 export const handleChangeContactFulfilled = (state, { payload }) => {
