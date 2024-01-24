@@ -26,6 +26,7 @@ const NewPage = () => {
         slidesPerView={1}
         grid={{
           rows: 10,
+          fill: 'row',
         }}
         slidesPerGroup={1}
         pagination={{
