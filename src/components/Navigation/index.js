@@ -19,6 +19,9 @@ const Navigation = () => {
         <Typography sx={NavLinkStyle} component={NavLink} to="/">
           Contacts
         </Typography>
+        <Typography sx={NavLinkStyle} component={NavLink} to="/newpage">
+          NewPage
+        </Typography>
       </Box>
       <Box>
         <Link to="/">

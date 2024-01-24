@@ -11,6 +11,7 @@ import RestrictedRoute from './RestrictedRoute';
 import PhoneBookPage from 'page/PhoneBookPage';
 import UpdateProfile from 'page/UpdateProfilePage';
 import ProfilePage from 'page/ProfilePage';
+import NewPage from 'page/newPage';
 
 const LoginPage = lazy(() => import('page/LoginPage'));
 const RegistrationPage = lazy(() => import('page/RegistrationPage'));
@@ -38,6 +39,10 @@ export const App = () => {
         <Route
           path="/login"
           element={<RestrictedRoute redirectTo="/" component={<LoginPage />} />}
+        />
+        <Route
+          path="/newpage"
+          element={<PrivateRoute redirectTo="/" component={<NewPage />} />}
         />
         <Route
           path="/registration"
