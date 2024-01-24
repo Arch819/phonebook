@@ -5,8 +5,8 @@ import 'swiper/css/grid';
 import 'swiper/css/pagination';
 
 export const SwiperBox = styled(Swiper)`
-flex-direction: unset;
-  flex-wrap: wrap;
+  /* flex-direction: unset; */
+  /* flex-wrap: wrap; */
   width: 100%;
   height: 100%;
   margin-left: auto;

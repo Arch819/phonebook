@@ -33,7 +33,7 @@ const NewPage = () => {
         slidesPerView={1}
         grid={{
           rows: 10,
-          fill: 'row',
+          // fill: 'row',
         }}
         slidesPerGroup={1}
         pagination={{
@@ -60,164 +60,138 @@ const NewPage = () => {
         modules={[Grid, Pagination]}
         className="mySwiper"
       >
-        <div className="swiper-wrapper">
-          <SwiperSlide key={data.idFilter}>
-            <Link
-              to={`/exercises/${data.category}/${encodeURIComponent(
-                data.name
-              )}`}
-            >
-              <Image src={data.imgURL} alt="name"></Image>
-              <TextContainer>
-                <h3>{capitalizedWord(data.name)}</h3>
-                <p>{data.filter}</p>
-              </TextContainer>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide key={data.idFilter}>
-            <Link
-              to={`/exercises/${data.category}/${encodeURIComponent(
-                data.name
-              )}`}
-            >
-              <Image src={data.imgURL} alt="name"></Image>
-              <TextContainer>
-                <h3>{capitalizedWord(data.name)}</h3>
-                <p>{data.filter}</p>
-              </TextContainer>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide key={data.idFilter}>
-            <Link
-              to={`/exercises/${data.category}/${encodeURIComponent(
-                data.name
-              )}`}
-            >
-              <Image src={data.imgURL} alt="name"></Image>
-              <TextContainer>
-                <h3>{capitalizedWord(data.name)}</h3>
-                <p>{data.filter}</p>
-              </TextContainer>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide key={data.idFilter}>
-            <Link
-              to={`/exercises/${data.category}/${encodeURIComponent(
-                data.name
-              )}`}
-            >
-              <Image src={data.imgURL} alt="name"></Image>
-              <TextContainer>
-                <h3>{capitalizedWord(data.name)}</h3>
-                <p>{data.filter}</p>
-              </TextContainer>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide key={data.idFilter}>
-            <Link
-              to={`/exercises/${data.category}/${encodeURIComponent(
-                data.name
-              )}`}
-            >
-              <Image src={data.imgURL} alt="name"></Image>
-              <TextContainer>
-                <h3>{capitalizedWord(data.name)}</h3>
-                <p>{data.filter}</p>
-              </TextContainer>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide key={data.idFilter}>
-            <Link
-              to={`/exercises/${data.category}/${encodeURIComponent(
-                data.name
-              )}`}
-            >
-              <Image src={data.imgURL} alt="name"></Image>
-              <TextContainer>
-                <h3>{capitalizedWord(data.name)}</h3>
-                <p>{data.filter}</p>
-              </TextContainer>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide key={data.idFilter}>
-            <Link
-              to={`/exercises/${data.category}/${encodeURIComponent(
-                data.name
-              )}`}
-            >
-              <Image src={data.imgURL} alt="name"></Image>
-              <TextContainer>
-                <h3>{capitalizedWord(data.name)}</h3>
-                <p>{data.filter}</p>
-              </TextContainer>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide key={data.idFilter}>
-            <Link
-              to={`/exercises/${data.category}/${encodeURIComponent(
-                data.name
-              )}`}
-            >
-              <Image src={data.imgURL} alt="name"></Image>
-              <TextContainer>
-                <h3>{capitalizedWord(data.name)}</h3>
-                <p>{data.filter}</p>
-              </TextContainer>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide key={data.idFilter}>
-            <Link
-              to={`/exercises/${data.category}/${encodeURIComponent(
-                data.name
-              )}`}
-            >
-              <Image src={data.imgURL} alt="name"></Image>
-              <TextContainer>
-                <h3>{capitalizedWord(data.name)}</h3>
-                <p>{data.filter}</p>
-              </TextContainer>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide key={data.idFilter}>
-            <Link
-              to={`/exercises/${data.category}/${encodeURIComponent(
-                data.name
-              )}`}
-            >
-              <Image src={data.imgURL} alt="name"></Image>
-              <TextContainer>
-                <h3>{capitalizedWord(data.name)}</h3>
-                <p>{data.filter}</p>
-              </TextContainer>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide key={data.idFilter}>
-            <Link
-              to={`/exercises/${data.category}/${encodeURIComponent(
-                data.name
-              )}`}
-            >
-              <Image src={data.imgURL} alt="name"></Image>
-              <TextContainer>
-                <h3>{capitalizedWord(data.name)}</h3>
-                <p>{data.filter}</p>
-              </TextContainer>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide key={data.idFilter}>
-            <Link
-              to={`/exercises/${data.category}/${encodeURIComponent(
-                data.name
-              )}`}
-            >
-              <Image src={data.imgURL} alt="name"></Image>
-              <TextContainer>
-                <h3>{capitalizedWord(data.name)}</h3>
-                <p>{data.filter}</p>
-              </TextContainer>
-            </Link>
-          </SwiperSlide>
-        </div>
+        <SwiperSlide key={data.idFilter}>
+          <Link
+            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
+          >
+            <Image src={data.imgURL} alt="name"></Image>
+            <TextContainer>
+              <h3>{capitalizedWord(data.name)}</h3>
+              <p>{data.filter}</p>
+            </TextContainer>
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide key={data.idFilter}>
+          <Link
+            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
+          >
+            <Image src={data.imgURL} alt="name"></Image>
+            <TextContainer>
+              <h3>{capitalizedWord(data.name)}</h3>
+              <p>{data.filter}</p>
+            </TextContainer>
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide key={data.idFilter}>
+          <Link
+            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
+          >
+            <Image src={data.imgURL} alt="name"></Image>
+            <TextContainer>
+              <h3>{capitalizedWord(data.name)}</h3>
+              <p>{data.filter}</p>
+            </TextContainer>
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide key={data.idFilter}>
+          <Link
+            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
+          >
+            <Image src={data.imgURL} alt="name"></Image>
+            <TextContainer>
+              <h3>{capitalizedWord(data.name)}</h3>
+              <p>{data.filter}</p>
+            </TextContainer>
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide key={data.idFilter}>
+          <Link
+            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
+          >
+            <Image src={data.imgURL} alt="name"></Image>
+            <TextContainer>
+              <h3>{capitalizedWord(data.name)}</h3>
+              <p>{data.filter}</p>
+            </TextContainer>
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide key={data.idFilter}>
+          <Link
+            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
+          >
+            <Image src={data.imgURL} alt="name"></Image>
+            <TextContainer>
+              <h3>{capitalizedWord(data.name)}</h3>
+              <p>{data.filter}</p>
+            </TextContainer>
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide key={data.idFilter}>
+          <Link
+            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
+          >
+            <Image src={data.imgURL} alt="name"></Image>
+            <TextContainer>
+              <h3>{capitalizedWord(data.name)}</h3>
+              <p>{data.filter}</p>
+            </TextContainer>
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide key={data.idFilter}>
+          <Link
+            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
+          >
+            <Image src={data.imgURL} alt="name"></Image>
+            <TextContainer>
+              <h3>{capitalizedWord(data.name)}</h3>
+              <p>{data.filter}</p>
+            </TextContainer>
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide key={data.idFilter}>
+          <Link
+            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
+          >
+            <Image src={data.imgURL} alt="name"></Image>
+            <TextContainer>
+              <h3>{capitalizedWord(data.name)}</h3>
+              <p>{data.filter}</p>
+            </TextContainer>
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide key={data.idFilter}>
+          <Link
+            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
+          >
+            <Image src={data.imgURL} alt="name"></Image>
+            <TextContainer>
+              <h3>{capitalizedWord(data.name)}</h3>
+              <p>{data.filter}</p>
+            </TextContainer>
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide key={data.idFilter}>
+          <Link
+            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
+          >
+            <Image src={data.imgURL} alt="name"></Image>
+            <TextContainer>
+              <h3>{capitalizedWord(data.name)}</h3>
+              <p>{data.filter}</p>
+            </TextContainer>
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide key={data.idFilter}>
+          <Link
+            to={`/exercises/${data.category}/${encodeURIComponent(data.name)}`}
+          >
+            <Image src={data.imgURL} alt="name"></Image>
+            <TextContainer>
+              <h3>{capitalizedWord(data.name)}</h3>
+              <p>{data.filter}</p>
+            </TextContainer>
+          </Link>
+        </SwiperSlide>
       </Swiper>
     </div>
   );
