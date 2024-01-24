@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from 'components/App';
+import 'swiper/css';
+import 'swiper/css/grid';
+import 'swiper/css/pagination';
 import './index.css';
 import { Provider } from 'react-redux';
 import { persistor, store } from 'store/store';
