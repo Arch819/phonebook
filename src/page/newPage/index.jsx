@@ -5,7 +5,14 @@ import { Link } from 'react-router-dom';
 import 'swiper/css';
 import 'swiper/css/grid';
 import 'swiper/css/pagination';
-import { Image, SwiperBox, SwiperItem, TextContainer } from './Swiper.styled';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import {
+  Image,
+  // SwiperBox,
+  // SwiperSlide,
+  TextContainer,
+} from './Swiper.styled';
 import imageTest from '../../images/picture.png';
 
 const NewPage = () => {
@@ -22,7 +29,7 @@ const NewPage = () => {
 
   return (
     <div style={{ height: '444px' }}>
-      <SwiperBox
+      <Swiper
         slidesPerView={1}
         grid={{
           rows: 10,
@@ -54,7 +61,7 @@ const NewPage = () => {
         className="mySwiper"
       >
         <div className="swiper-wrapper">
-          <SwiperItem key={data.idFilter}>
+          <SwiperSlide key={data.idFilter}>
             <Link
               to={`/exercises/${data.category}/${encodeURIComponent(
                 data.name
@@ -66,8 +73,8 @@ const NewPage = () => {
                 <p>{data.filter}</p>
               </TextContainer>
             </Link>
-          </SwiperItem>
-          <SwiperItem key={data.idFilter}>
+          </SwiperSlide>
+          <SwiperSlide key={data.idFilter}>
             <Link
               to={`/exercises/${data.category}/${encodeURIComponent(
                 data.name
@@ -79,8 +86,8 @@ const NewPage = () => {
                 <p>{data.filter}</p>
               </TextContainer>
             </Link>
-          </SwiperItem>
-          <SwiperItem key={data.idFilter}>
+          </SwiperSlide>
+          <SwiperSlide key={data.idFilter}>
             <Link
               to={`/exercises/${data.category}/${encodeURIComponent(
                 data.name
@@ -92,8 +99,8 @@ const NewPage = () => {
                 <p>{data.filter}</p>
               </TextContainer>
             </Link>
-          </SwiperItem>
-          <SwiperItem key={data.idFilter}>
+          </SwiperSlide>
+          <SwiperSlide key={data.idFilter}>
             <Link
               to={`/exercises/${data.category}/${encodeURIComponent(
                 data.name
@@ -105,8 +112,8 @@ const NewPage = () => {
                 <p>{data.filter}</p>
               </TextContainer>
             </Link>
-          </SwiperItem>
-          <SwiperItem key={data.idFilter}>
+          </SwiperSlide>
+          <SwiperSlide key={data.idFilter}>
             <Link
               to={`/exercises/${data.category}/${encodeURIComponent(
                 data.name
@@ -118,8 +125,8 @@ const NewPage = () => {
                 <p>{data.filter}</p>
               </TextContainer>
             </Link>
-          </SwiperItem>
-          <SwiperItem key={data.idFilter}>
+          </SwiperSlide>
+          <SwiperSlide key={data.idFilter}>
             <Link
               to={`/exercises/${data.category}/${encodeURIComponent(
                 data.name
@@ -131,8 +138,8 @@ const NewPage = () => {
                 <p>{data.filter}</p>
               </TextContainer>
             </Link>
-          </SwiperItem>
-          <SwiperItem key={data.idFilter}>
+          </SwiperSlide>
+          <SwiperSlide key={data.idFilter}>
             <Link
               to={`/exercises/${data.category}/${encodeURIComponent(
                 data.name
@@ -144,8 +151,8 @@ const NewPage = () => {
                 <p>{data.filter}</p>
               </TextContainer>
             </Link>
-          </SwiperItem>
-          <SwiperItem key={data.idFilter}>
+          </SwiperSlide>
+          <SwiperSlide key={data.idFilter}>
             <Link
               to={`/exercises/${data.category}/${encodeURIComponent(
                 data.name
@@ -157,8 +164,8 @@ const NewPage = () => {
                 <p>{data.filter}</p>
               </TextContainer>
             </Link>
-          </SwiperItem>
-          <SwiperItem key={data.idFilter}>
+          </SwiperSlide>
+          <SwiperSlide key={data.idFilter}>
             <Link
               to={`/exercises/${data.category}/${encodeURIComponent(
                 data.name
@@ -170,8 +177,8 @@ const NewPage = () => {
                 <p>{data.filter}</p>
               </TextContainer>
             </Link>
-          </SwiperItem>
-          <SwiperItem key={data.idFilter}>
+          </SwiperSlide>
+          <SwiperSlide key={data.idFilter}>
             <Link
               to={`/exercises/${data.category}/${encodeURIComponent(
                 data.name
@@ -183,8 +190,8 @@ const NewPage = () => {
                 <p>{data.filter}</p>
               </TextContainer>
             </Link>
-          </SwiperItem>
-          <SwiperItem key={data.idFilter}>
+          </SwiperSlide>
+          <SwiperSlide key={data.idFilter}>
             <Link
               to={`/exercises/${data.category}/${encodeURIComponent(
                 data.name
@@ -196,8 +203,8 @@ const NewPage = () => {
                 <p>{data.filter}</p>
               </TextContainer>
             </Link>
-          </SwiperItem>
-          <SwiperItem key={data.idFilter}>
+          </SwiperSlide>
+          <SwiperSlide key={data.idFilter}>
             <Link
               to={`/exercises/${data.category}/${encodeURIComponent(
                 data.name
@@ -209,9 +216,9 @@ const NewPage = () => {
                 <p>{data.filter}</p>
               </TextContainer>
             </Link>
-          </SwiperItem>
+          </SwiperSlide>
         </div>
-      </SwiperBox>
+      </Swiper>
     </div>
   );
 };
